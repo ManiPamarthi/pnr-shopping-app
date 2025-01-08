@@ -1,19 +1,20 @@
 "use client";
+
 import React from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 
 const products = [
-  { id: 1, name: "Fash OS Gel Facewash", image: "/phone.png", status: "Out of Stock" },
-  { id: 2, name: "Adhesive Tape", image: "/buds.png", status: "Out of Stock" },
-  { id: 3, name: "Power Back Cover", image: "/apple.png", status: "Out of Stock" },
-  { id: 4, name: "Fash OS Gel Facewash", image: "/phone.png", status: "Out of Stock" },
-  { id: 5, name: "Adhesive Tape", image: "/buds.png", status: "Out of Stock" },
-  { id: 6, name: "Power Back Cover", image: "/apple.png", status: "Out of Stock" },
-  { id: 7, name: "Fash OS Gel Facewash", image: "/phone.png", status: "Out of Stock" },
-  { id: 8, name: "Adhesive Tape", image: "/buds.png", status: "Out of Stock" },
-  { id: 9, name: "Power Back Cover", image: "/apple.png", status: "Out of Stock" },
-  { id: 10, name: "Power Back Cover", image: "/apple.png", status: "Out of Stock" },
+  { id: 1, name: "Apple 14 plus Phone", image: "/phone.png", status: "View" },
+  { id: 2, name: "Buds", image: "/buds.png", status: "Out of Stock" },
+  { id: 3, name: "Iphone 16 plus ", image: "/apple.png", status: "View" },
+  { id: 4, name: "Samsung Galaxy", image: "/galaxy.png", status: "Out of Stock" },
+  { id: 5, name: "Vivo Headset", image: "/headset.png", status: "View" },
+  { id: 6, name: "Ipad", image: "/ipad.png", status: "Out of Stock" },
+  { id: 7, name: "Fastrack Watch", image: "/watch.png", status: "Out of Stock" },
+  { id: 8, name: "Nikon Camera", image: "/camera.png", status: "View" },
+  { id: 9, name: "Vivo Buds", image: "/buds.png", status: "Out of Stock" },
+  { id: 10, name: "Mobile", image: "/apple.png", status: "View" },
 ];
 
 const CartList = () => {
@@ -32,25 +33,17 @@ const CartList = () => {
             className="rounded-lg"
           />
           <div className="flex flex-col flex-grow">
-            <p className="text-sm font-medium">{product.name}</p>
-            <p className="text-sm text-red-500">{product.status}</p>
+            <p className="text-sm font-medium py-2">{product.name}</p>
+            <Button variant="outline">{product.status}</Button>
           </div>
-          <div className="flex flex-col gap-2">
-            <Button variant="outline">Save for Later</Button>
-            <Button variant="outline" className="text-red-500">Remove</Button>
+          <div className="flex flex-col md:flex-row items-center md:items-start md:gap-4 gap-2">
+            <div className="hidden md:flex flex-col gap-2">
+              <Button variant="outline">Save for Later</Button>
+              <Button variant="outline">Remove</Button>
+            </div>
           </div>
         </div>
       ))}
-      <div className="fixed bottom-0 left-0 w-full bg-white p-4 shadow-md border-t">
-        <div className="flex justify-end">
-          <Button
-            variant="outline"
-            className="bg-orange-500 text-black px-6 py-2 text-sm font-medium"
-          >
-            Place Order
-          </Button>
-        </div>
-      </div>
     </div>
   );
 };

@@ -1,3 +1,5 @@
+"use client";
+
 import React from 'react';
 import { Button } from "@/components/ui/button"
 import {
@@ -18,16 +20,13 @@ const AddressModal = () => {
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle>Edit profile</DialogTitle>
+          <DialogTitle>Address</DialogTitle>
           <DialogDescription>
-            Make changes to your profile here. Click save when you're done.
+            Your Address Here...
           </DialogDescription>
         </DialogHeader>
-        <div className="grid gap-4 py-4">
-          Content
-        </div>
         <DialogFooter>
-          <Button type="submit">Save changes</Button>
+          <Button type="button">Save</Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>
