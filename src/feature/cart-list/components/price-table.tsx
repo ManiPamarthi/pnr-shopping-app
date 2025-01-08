@@ -1,4 +1,5 @@
 "use client";
+
 import React from "react";
 import {
   useReactTable,
@@ -6,7 +7,16 @@ import {
   flexRender,
 } from "@tanstack/react-table";
 
-const TableComponent = ({ data }) => {
+type DataType = {
+  name: string;
+  amount: number;
+};
+
+interface TableComponentProps {
+  data: DataType[];
+}
+
+const TableComponent: React.FC<TableComponentProps> = ({ data }) => {
   // Define columns
   const columns = React.useMemo(
     () => [

@@ -18,7 +18,7 @@ const CartPage = () => {
       <div>
         <Header />
       </div>
-      <div className="pt-20 px-7 pr-4">
+      <div className="pt-4 px-8 pr-4">
         <Card className="rounded-none col-span-1">
           <CardHeader>
             <div className="flex items-center justify-between">
