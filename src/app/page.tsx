@@ -7,13 +7,10 @@ import ElectronicsCard from "@/feature/best-electronics/components/electronics-c
 export default function Home() {
   return (
     <div>
-      <Header />
-      <SubHeader />
       <main className="container">
         <ElectronicsCard />
         <BeautyCard />
       </main>
-      <Footer />
     </div>
   );
 }

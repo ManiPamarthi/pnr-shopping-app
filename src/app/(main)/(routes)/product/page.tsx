@@ -4,12 +4,9 @@ import React from 'react';
 
 const ProductPage = () => {
   return (
-    <div>
-      <Header />
       <div>
         <NotFound />
       </div>
-    </div>
   );
 };
 

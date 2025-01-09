@@ -10,6 +10,8 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
+import SearchBar from "../search-bar/search-bar";
+import Logo from "../logo/logo";
 
 const desktopLinks = [
   { href: "/cart", icon: <ShoppingCart />, label: "Cart" },
@@ -28,20 +30,16 @@ export default function Header() {
 
   return (
     <>
-      <div className="lg:px-6 bg-white dark:bg-gray-900 shadow-md top-0 left-0 w-full z-50">
+      <div className="lg:px-6 bg-white top-0 left-0 w-full z-50">
         <div className="container mx-auto px-4 py-3 flex justify-between items-center">
           <div className="text-xl font-bold text-gray-800 dark:text-gray-100">
-            <Link href="/">MyLogo</Link>
+            <Link href="/">
+              <Logo />
+            </Link>
           </div>
 
           {/* Search Bar */}
-          <div className="hidden md:flex items-center w-1/3">
-            <Input
-              type="text"
-              placeholder="Search for Products, Brands and More"
-              className="dark:text-gray-200 dark:bg-gray-800"
-            />
-          </div>
+          
 
           {/* Desktop Menu */}
           <div className="hidden md:flex space-x-8">
@@ -66,33 +64,25 @@ export default function Header() {
             <AlignJustify />
           </Button>
         </div>
-
-        {/* Mobile Menu */}
-        {isOpen && (
-  <div className="md:hidden bg-gray-100 dark:bg-gray-800">
-    <div className="flex flex-col space-y-2 py-2">
-      {mobileLinks.map((link, index) => (
-        <Link
-          key={index}
-          href={link.href}
-          className="flex items-center text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white px-4"
-        >
-          {link.icon && <span className="mr-2">{link.icon}</span>}
-          <span>{link.label}</span>
-        </Link>
-      ))}
-    </div>
-
-    {/* Mobile Search Bar */}
-    <div className="px-4 py-2">
-      <Input
-        type="text"
-        placeholder="Search..."
-        className="w-full px-4 py-2 border rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-gray-200"
-      />
-    </div>
-  </div>
-)}
+      {/* Mobile Menu */}
+      {isOpen && (
+        <div className="md:hidden bg-gray-100 dark:bg-gray-800">
+          <div className="flex flex-col space-y-2 py-2">
+            {mobileLinks.map((link, index) => (
+              <Link
+                key={index}
+                href={link.href}
+                className="flex items-center text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white px-4"
+              >
+                {link.icon && <span className="mr-2">{link.icon}</span>}
+                <span>{link.label}</span>
+              </Link>
+            ))}
+          </div>
+        {/* Mobile Search Bar */}
+          
+          </div>
+        )}
       </div>
     </>
   );
