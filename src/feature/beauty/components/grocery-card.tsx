@@ -9,23 +9,23 @@ import Image from "next/image";
 import Link from "next/link";
 
 const products = [
-  { id: 1, name: "Wireless Buds", image: "/buds.png" },
-  { id: 2, name: "Camera", image: "/camera.png" },
-  { id: 3, name: "Mobile", image: "/galaxy.png" },
-  { id: 4, name: "HeadSet", image: "/headset.png" },
-  { id: 5, name: "I Pad", image: "/ipad.png" },
-  { id: 6, name: "Apple Phone", image: "/phone.png" },
-  { id: 7, name: "Smart Watch", image: "/watch.png" },
-  { id: 8, name: "Apple", image: "/phone2.png" },
+  { id: 1, name: "Grocerys", image: "/grocery-one.png" },
+  { id: 2, name: "Almonds", image: "/grocery-two.png" },
+  { id: 3, name: "Oils", image: "/grocery-three.png" },
+  { id: 4, name: "Saas", image: "/grocery-four.png" },
+  { id: 5, name: "Grocery Mart", image: "/grocery-five.jpg" },
+  { id: 6, name: "Rice", image: "/grocery-six.jpg" },
+  { id: 7, name: "Flours", image: "/grocery-eight.png" },
+  { id: 8, name: "Fruits", image: "/grocery-seven.jpg" },
 ];
 
-const ElectronicsCard = () => {
+const GroceryCard = () => {
   return (
     <div className="mt-6">
       <Card className="rounded-lg shadow-md">
         <CardHeader>
         <div className="flex justify-between items-center">
-          <CardTitle className="text-xl font-bold">Best Electronics</CardTitle>
+          <CardTitle className="text-xl font-bold">Grocerys</CardTitle>
           <Link href="/products">
           <button className="text-sm font-medium text-blue-500 md:hidden">
               View All
@@ -55,4 +55,4 @@ const ElectronicsCard = () => {
   );
 };
 
-export default ElectronicsCard;
+export default GroceryCard;

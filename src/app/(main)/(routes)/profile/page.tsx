@@ -1,8 +1,11 @@
+import NotFound from '@/components/error/not-found';
 import React from 'react'
 
 const Profile = () => {
   return (
-    <div>page</div>
+    <div>
+      <NotFound />
+    </div>
   )
 }
 
