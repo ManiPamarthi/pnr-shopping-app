@@ -1,73 +1,147 @@
-"use client";
-
-import { Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
+import { cn } from "@/lib/utils";
+import React from "react";
 import Link from "next/link";
+import Image from "next/image";
+import { PaymentBadge, SocialNetworks } from "./types";
+import LinksSection from "./link-section";
+import { Facebook, Github, Instagram, Twitter } from "lucide-react";
+import { integralCF } from "@/app/fonts";
+import Logo from "../logo/logo";
 
-export default function Footer() {
+const socialsData: SocialNetworks[] = [
+  {
+    id: 1,
+    icon: <Twitter />,
+    url: "https://twitter.com",
+  },
+  {
+    id: 2,
+    icon: <Facebook />,
+    url: "https://facebook.com",
+  },
+  {
+    id: 3,
+    icon: <Instagram />,
+    url: "https://instagram.com",
+  },
+  {
+    id: 4,
+    icon: <Github />,
+    url: "https://github.com/mohammadoftadeh",
+  },
+];
+
+{/*const paymentBadgesData: PaymentBadge[] = [
+  {
+    id: 1,
+    srcUrl: "/icons/Visa.svg",
+  },
+  {
+    id: 2,
+    srcUrl: "/icons/mastercard.svg",
+  },
+  {
+    id: 3,
+    srcUrl: "/icons/paypal.svg",
+  },
+  {
+    id: 4,
+    srcUrl: "/icons/applePay.svg",
+  },
+  {
+    id: 5,
+    srcUrl: "/icons/googlePay.svg",
+  },
+];*/}
+
+const Footer = () => {
   return (
-    <footer className="bg-gray-800 text-white py-6">
-      <div className="container mx-auto px-4">
-        {/* Footer Top Section */}
-        <div className="flex flex-wrap justify-between space-y-6 md:space-y-0">
-          {/* About Section */}
-          <div className="w-full md:w-1/4">
-            <h3 className="text-lg font-semibold">About Us</h3>
-            <p className="text-sm text-gray-400">
-            We are a residential interior design firm located in Portland. Our boutique-studio offers more than
+    <footer className="border-t-2">
+      <div className="relative">
+        <div className="absolute bottom-0 w-full h-1/2 bg-[#F0F0F0]"></div>
+        <div className="px-4">
+        </div>
+      </div>
+      <div className="pt-8 md:pt-[50px] bg-[#F0F0F0] px-4 pb-4">
+        <div className="max-w-frame mx-auto">
+          <nav className="lg:grid lg:grid-cols-12 mb-8">
+            <div className="flex flex-col lg:col-span-3 lg:max-w-[248px]">
+            <div className="flex justify-center md:justify-start">
+                <Logo />
+            </div>
+              <p className="text-black/60 text-sm mb-9">
+                We have clothes and Mobiles that suits your style and which you’re proud to
+                be wear. From women to men.
+              </p>
+              <div className="flex items-center">
+                {socialsData.map((social) => (
+                  <Link
+                    href={social.url}
+                    key={social.id}
+                    className="bg-white hover:bg-black hover:text-white transition-all mr-3 w-7 h-7 rounded-full border border-black/20 flex items-center justify-center p-1.5"
+                  >
+                    {social.icon}
+                  </Link>
+                ))}
+              </div>
+            </div>
+            <div className="hidden lg:grid col-span-9 lg:grid-cols-4 lg:pl-10">
+              <LinksSection />
+            </div>
+            <div className="grid lg:hidden grid-cols-2 sm:grid-cols-4">
+              <LinksSection />
+            </div>
+          </nav>
+
+          <hr className="h-[1px] border-t-black/10 mb-6 flex" />
+          <div className="flex flex-col sm:flex-row justify-center sm:justify-between items-center mb-2">
+            <p className="text-sm text-center sm:text-left text-black/60 mb-4 sm:mb-0 sm:mr-1">
+              2025 © PNR Info Tech. All Rights Reserved.{" "}
+              <span className="block sm:inline">
+              CEO of : {" "}
+              <Link
+                href="/"
+                className="text-black font-medium"
+              >
+                 Baji Pamarthi & RC Kandra
+              </Link>
+              {", "}
+              </span> 
+              <span className="block sm:inline">
+              Developed by{" "}
+              <Link
+                href="/"
+                className="text-black font-medium"
+              >
+                Mani Pamarthi
+              </Link>
+              </span>
             </p>
-          </div>
-
-          {/* Quick Links Section */}
-          <div className="w-full md:w-1/4">
-            <h3 className="text-lg font-semibold">Quick Links</h3>
-            <ul>
-              <li>
-                <Link href="/" className="text-gray-400 hover:text-white text-sm">Home</Link>
-              </li>
-              <li>
-                <Link href="/about" className="text-gray-400 hover:text-white text-sm">About</Link>
-              </li>
-              <li>
-                <Link href="/services" className="text-gray-400 hover:text-white text-sm">Services</Link>
-              </li>
-              <li>
-                <Link href="/contact" className="text-gray-400 hover:text-white text-sm">Contact</Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Social Media Section */}
-          <div className="w-full md:w-1/4">
-            <h3 className="text-lg font-semibold">Follow Us</h3>
-            <div className="flex space-x-4">
-              <a href="https://facebook.com" target="_blank" className="text-gray-400 hover:text-white">
-                <Facebook size={24} />
-              </a>
-              <a href="https://twitter.com" target="_blank" className="text-gray-400 hover:text-white">
-                <Twitter size={24} />
-              </a>
-              <a href="https://instagram.com" target="_blank" className="text-gray-400 hover:text-white">
-                <Instagram size={24} />
-              </a>
-              <a href="https://linkedin.com" target="_blank" className="text-gray-400 hover:text-white">
-                <Linkedin size={24} />
-              </a>
+            <div className="flex items-center">
+              {/*{paymentBadgesData.map((badge, _, arr) => (
+                <span
+                  key={badge.id}
+                  className={cn([
+                    arr.length !== badge.id && "mr-3",
+                    "w-[46px] h-[30px] rounded-[5px] border-[#D6DCE5] bg-white flex items-center justify-center",
+                  ])}
+                >
+                  <Image
+                    priority
+                    src={badge.srcUrl}
+                    width={33}
+                    height={100}
+                    alt="user"
+                    className="max-h-[15px]"
+                  />
+                </span>
+              ))}*/}
             </div>
           </div>
-
-          {/* Contact Info Section */}
-          <div className="w-full md:w-1/4">
-            <h3 className="text-lg font-semibold">Contact Info</h3>
-            <p className="text-sm text-gray-400">Email: info@mywebsite.com</p>
-            <p className="text-sm text-gray-400">Phone: (123) 456-7890</p>
-          </div>
-        </div>
-
-        {/* Footer Bottom Section */}
-        <div className="mt-6 border-t border-gray-700 pt-4 text-center text-sm text-gray-400">
-          <p>&copy; 2025 MyWebsite. All rights reserved.</p>
         </div>
       </div>
     </footer>
   );
-}
+};
+
+export default Footer;
